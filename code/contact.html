@@ -1,123 +1,123 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — Salik bin Khidr Sheikh Ul Islam</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Salik bin Khidr Sheikh Ul Islam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
 
-<header class="site-header">
-  <div class="container">
-    <a href="index.html" class="brand"><span class="star"></span> Salik bin Khidr Sheikh Ul Islam</a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="classes.html">Classes</a></li>
-        <li><a href="videos.html">Videos</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="brand"><span class="star"></span> Salik bin Khidr Sheikh Ul Islam</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="videos.html">Videos</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-<section class="hero" style="padding:60px 0 70px;">
-  <div class="container">
-    <span class="eyebrow">Contact</span>
-    <h1 style="color:var(--ivory)">Get in touch</h1>
-    <p class="lede">Send an inquiry for any class — online or in person — and you'll hear back to confirm a time and the details.</p>
-  </div>
-</section>
+  <section class="hero" style="padding:60px 0 70px;">
+    <div class="container">
+      <span class="eyebrow">Contact</span>
+      <h1 style="color:var(--ivory)">Get in touch</h1>
+      <p class="lede">Send an inquiry for any class — online or in person — and you'll hear back to confirm a time and the details.</p>
+    </div>
+  </section>
 
-<section>
-  <div class="container contact-grid">
-    <div>
-      <div class="info-block">
-        <span class="label">Address (in-person classes)</span>
-        <p style="color:var(--ink); margin:0;">123 Placeholder St<br>Atlantic City, NJ 08401 — placeholder</p>
+  <section>
+    <div class="container contact-grid">
+      <div>
+        <div class="info-block">
+          <span class="label">Address (in-person classes)</span>
+          <p style="color:var(--ink); margin:0;">123 Placeholder St<br>Atlantic City, NJ 08401 — placeholder</p>
+        </div>
+        <div class="info-block">
+          <span class="label">Email</span>
+          <p style="color:var(--ink); margin:0;"><a href="mailto:info@example.com">info@example.com — placeholder</a></p>
+        </div>
+        <div class="info-block">
+          <span class="label">Phone</span>
+          <p style="color:var(--ink); margin:0;"><a href="tel:+10000000000">(000) 000-0000 — placeholder</a></p>
+        </div>
+        <div class="map-frame">
+          <iframe title="Location map" loading="lazy"
+            src="https://www.google.com/maps?q=Atlantic+City,NJ&output=embed">
+          </iframe>
+        </div>
       </div>
-      <div class="info-block">
-        <span class="label">Email</span>
-        <p style="color:var(--ink); margin:0;"><a href="mailto:info@example.com">info@example.com — placeholder</a></p>
+
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Placeholder: this form is not yet connected to send messages.');">
+        <div class="field">
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="field">
+          <label for="class">Class of interest</label>
+          <select id="class" name="class">
+            <option>Tajweed Foundations</option>
+            <option>Hifz (Memorization) Track</option>
+            <option>Arabic for Beginners</option>
+            <option>Qur'anic Arabic Grammar</option>
+            <option>Foundations of Fiqh</option>
+            <option>Aqeedah Essentials</option>
+            <option>Not sure / other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="format">Preferred format</label>
+          <select id="format" name="format">
+            <option>Online</option>
+            <option>In person</option>
+            <option>No preference</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="availability">Your availability</label>
+          <textarea id="availability" name="availability" placeholder="e.g. Weekday evenings, Saturday mornings..."></textarea>
+        </div>
+        <div class="field">
+          <label for="message">Message (optional)</label>
+          <textarea id="message" name="message"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Inquiry</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div>
+        <div class="brand" style="margin-bottom:10px;"><span class="star"></span>Salik bin Khidr Sheikh Ul Islam</div>
+        <p style="color:var(--sage); max-width:32ch;">Placeholder tagline about the teacher's mission or approach.</p>
       </div>
-      <div class="info-block">
-        <span class="label">Phone</span>
-        <p style="color:var(--ink); margin:0;"><a href="tel:+10000000000">(000) 000-0000 — placeholder</a></p>
+      <div>
+        <span class="eyebrow">Navigate</span><br>
+        <a href="classes.html">Classes</a><br>
+        <a href="videos.html">Videos</a><br>
+        <a href="contact.html">Contact</a>
       </div>
-      <div class="map-frame">
-        <iframe title="Location map" loading="lazy"
-          src="https://www.google.com/maps?q=Atlantic+City,NJ&output=embed">
-        </iframe>
+      <div>
+        <span class="eyebrow">Contact</span><br>
+        <a href="mailto:info@example.com">info@example.com — placeholder</a><br>
+        <a href="tel:+10000000000">(000) 000-0000 — placeholder</a>
       </div>
     </div>
+    <div class="footer-bottom">&copy; 2026 Salik bin Khidr Sheikh Ul Islam. All rights reserved. — placeholder</div>
+  </footer>
 
-    <form class="contact-form" onsubmit="event.preventDefault(); alert('Placeholder: this form is not yet connected to send messages.');">
-      <div class="field">
-        <label for="name">Full name</label>
-        <input type="text" id="name" name="name" required>
-      </div>
-      <div class="field">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      <div class="field">
-        <label for="class">Class of interest</label>
-        <select id="class" name="class">
-          <option>Tajweed Foundations</option>
-          <option>Hifz (Memorization) Track</option>
-          <option>Arabic for Beginners</option>
-          <option>Qur'anic Arabic Grammar</option>
-          <option>Foundations of Fiqh</option>
-          <option>Aqeedah Essentials</option>
-          <option>Not sure / other</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="format">Preferred format</label>
-        <select id="format" name="format">
-          <option>Online</option>
-          <option>In person</option>
-          <option>No preference</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="availability">Your availability</label>
-        <textarea id="availability" name="availability" placeholder="e.g. Weekday evenings, Saturday mornings..."></textarea>
-      </div>
-      <div class="field">
-        <label for="message">Message (optional)</label>
-        <textarea id="message" name="message"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Send Inquiry</button>
-    </form>
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    <div>
-      <div class="brand" style="margin-bottom:10px;"><span class="star"></span>Salik bin Khidr Sheikh Ul Islam</div>
-      <p style="color:var(--sage); max-width:32ch;">Placeholder tagline about the teacher's mission or approach.</p>
-    </div>
-    <div>
-      <span class="eyebrow">Navigate</span><br>
-      <a href="classes.html">Classes</a><br>
-      <a href="videos.html">Videos</a><br>
-      <a href="contact.html">Contact</a>
-    </div>
-    <div>
-      <span class="eyebrow">Contact</span><br>
-      <a href="mailto:info@example.com">info@example.com — placeholder</a><br>
-      <a href="tel:+10000000000">(000) 000-0000 — placeholder</a>
-    </div>
-  </div>
-  <div class="footer-bottom">&copy; 2026 Salik bin Khidr Sheikh Ul Islam. All rights reserved. — placeholder</div>
-</footer>
-
-<script src="script.js"></script>
-</body>
-</html>
+  <script src="script.js"></script>
+  </body>
+  </html>

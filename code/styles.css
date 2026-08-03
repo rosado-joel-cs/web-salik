@@ -94,6 +94,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
           mask-repeat: no-repeat;
   -webkit-mask-position: center;
           mask-position: center;
+          transform: scale(5);
 }
 
 .star-divider{
@@ -123,12 +124,33 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   padding-top: 18px; padding-bottom: 18px;
 }
 .brand{
-  font-family: var(--font-display);
-  font-size: 1.35rem;
+  /*font-family: "Cormorant Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;*/
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;  
+  font-style: normal;  
   color: var(--ivory);
-  display:flex; align-items:center; gap:10px;
+  display: flex; 
+  align-items: center; 
+  gap: 450px;
 }
-.brand .star{ color: var(--gold); }
+.brand .star{ 
+  color: var(--gold); 
+  transform: scale(3);
+}
+
+/* .brand .star{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  color: var(--white);
+  width: 14px;
+  height: 22px;
+  transform: translate(-50%, -50%) scale(5);
+  pointer-events: none;   keeps clicks passing through to whatever's behind it 
+} */
 
 nav.main-nav ul{
   list-style:none; display:flex; gap: 30px;
@@ -192,6 +214,7 @@ nav.main-nav a:hover, nav.main-nav a.active{
   font-size: 1.05rem;
   line-height:1.7;
   margin:0;
+  font-style: italic;
 }
 .verse-en .verse-ref{
   display:block;
