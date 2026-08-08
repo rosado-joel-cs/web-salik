@@ -2,15 +2,12 @@
    Design tokens
    =========================================================== */
 :root{
-  --maroon:      #800000;
-  --maroon-dark: #800000;
-  --gold:         #F7ECD6;
-  --gold-bright:  #FFFBF2;
-  --ivory:        #F5EFE0;
-  --sage:         #E8E1CE;
-  --ink:          #221c1c;
-  --ink-soft:     #55534C;
-  --white:        #FFFFFF;
+  --maroon:    #800000;   /* primary brand color */
+  --cream:     #F5EFE0;   /* the one cream — backgrounds, accents on maroon, borders */
+  --tan:       #E8E1CE;   /* warm tan — card borders, alt-section fill (previously mislabeled "sage") */
+  --ink:       #221c1c;   /* body text */
+  --ink-soft:  #55534C;   /* secondary text */
+  --white:     #FFFFFF;
 
   --font-display: 'Amiri', serif;
   --font-body:    'Work Sans', sans-serif;
@@ -25,7 +22,7 @@ html{ scroll-behavior: smooth; }
 
 body{
   margin: 0;
-  background: var(--ivory);
+  background: var(--cream);
   color: var(--ink);
   font-family: var(--font-body);
   line-height: 1.6;
@@ -37,7 +34,7 @@ a{ color: inherit; text-decoration: none; }
 
 h1, h2, h3{
   font-family: var(--font-display);
-  color: var(--maroon-dark);
+  color: var(--maroon);
   margin: 0 0 0.4em;
   line-height: 1.15;
 }
@@ -57,9 +54,9 @@ p{ margin: 0 0 1em; color: var(--ink-soft); }
   display: inline-block;
   margin-bottom: 0.6em;
 }
-/* On dark (maroon) backgrounds, flip the eyebrow to creme so it stays readable */
+/* On maroon backgrounds, flip the eyebrow to cream so it stays readable */
 .hero .eyebrow, footer .eyebrow{
-  color: var(--gold);
+  color: var(--cream);
 }
 
 .container{
@@ -73,84 +70,79 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   outline: 2px solid var(--maroon);
   outline-offset: 3px;
 }
-  
+
 @media (prefers-reduced-motion: reduce){
   *{ animation: none !important; transition: none !important; }
   html{ scroll-behavior: auto; }
 }
 
 /* ===========================================================
-   Star motif (signature element) — used sparingly
+   Sandal motif (signature element) — used sparingly.
+   Each placement gets its own class rather than sharing one
+   base rule, since each sits on a different background and
+   needs its own size and fill color to stay visible.
    =========================================================== */
-.star{
-  width: 18px; height: 30px;
+.sandal-logo{
   display: inline-block;
-  background-color: #FFFFFF;
-  -webkit-mask-image: url('ornament.png');
-          mask-image: url('ornament.png');
+  width: 70px; height: 40px;
+  background-color: var(--cream);
+  -webkit-mask-image: url('sandal.png');
+          mask-image: url('sandal.png');
   -webkit-mask-size: contain;
           mask-size: contain;
   -webkit-mask-repeat: no-repeat;
           mask-repeat: no-repeat;
   -webkit-mask-position: center;
           mask-position: center;
-          transform: scale(5);
+  flex-shrink: 0;
+}
+
+.sandal-divider{
+  display: inline-block;
+  width: 200px; height: 50px;
+  background-color: var(--maroon);
+  -webkit-mask-image: url('sandal.png');
+          mask-image: url('sandal.png');
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
 }
 
 .star-divider{
   display:flex; align-items:center; justify-content:center;
   gap: 14px;
   margin: 3.2rem 0;
-  color: var(--maroon);
 }
 .star-divider::before, .star-divider::after{
   content:"";
-  height:1px; width: 60px;
-  background: var(--sage);
+  height:3px; width: 3800px;
+  background: var(--maroon);
 }
 
 /* ===========================================================
    Header / nav
    =========================================================== */
-
-.site-header {
+.site-header{
   background: var(--maroon);
-  color: var(--ivory);
+  color: var(--cream);
   position: sticky; top:0; z-index: 50;
-  border-bottom: 1px solid var(--gold); /* Adds border */
+  border-bottom: 1px solid var(--cream);
 }
 .site-header .container{
   display:flex; align-items:center; justify-content:space-between;
   padding-top: 18px; padding-bottom: 18px;
 }
 .brand{
-  /*font-family: "Cormorant Garamond", serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;*/
-  font-family: "Cormorant Garamond", serif;
-  font-size: 2rem;  
-  font-style: normal;  
-  color: var(--ivory);
-  display: flex; 
-  align-items: center; 
-  gap: 450px;
+  font-family: 'Amiri', serif;
+  font-size: 1.75rem;
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
-.brand .star{ 
-  color: var(--gold); 
-  transform: scale(3);
-}
-
-/* .brand .star{
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  color: var(--white);
-  width: 14px;
-  height: 22px;
-  transform: translate(-50%, -50%) scale(5);
-  pointer-events: none;   keeps clicks passing through to whatever's behind it 
-} */
 
 nav.main-nav ul{
   list-style:none; display:flex; gap: 30px;
@@ -164,20 +156,20 @@ nav.main-nav a{
   transition: border-color .15s ease, color .15s ease;
 }
 nav.main-nav a:hover, nav.main-nav a.active{
-  border-color: var(--gold);
-  color: var(--gold-bright);
+  border-color: var(--cream);
+  color: var(--white);
 }
 
 .nav-toggle{
   display:none;
-  background:none; border:none; color: var(--ivory);
+  background:none; border:none; color: var(--cream);
   font-size: 1.6rem; cursor:pointer;
 }
 
 @media (max-width: 760px){
   nav.main-nav{
     position:absolute; top:100%; left:0; right:0;
-    background: var(--maroon-dark);
+    background: var(--maroon);
     max-height:0; overflow:hidden;
     transition: max-height .25s ease;
   }
@@ -195,10 +187,10 @@ nav.main-nav a:hover, nav.main-nav a.active{
 }
 
 /* ===========================================================
-   Verse / Mission section (replaces home page hero)
+   Verse / Mission section (home page hero)
    =========================================================== */
 .verse-section{
-  background: #800000;
+  background: var(--maroon);
   padding: 72px 0 56px;
 }
 .verse-grid{
@@ -210,7 +202,7 @@ nav.main-nav a:hover, nav.main-nav a.active{
 }
 .verse-en{
   text-align:left;
-  color: var(--ivory);
+  color: var(--cream);
   font-size: 1.05rem;
   line-height:1.7;
   margin:0;
@@ -221,7 +213,7 @@ nav.main-nav a:hover, nav.main-nav a.active{
   margin-top: 12px;
   font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: var(--sage);
+  color: var(--tan);
 }
 .verse-ar{
   text-align:right;
@@ -229,7 +221,7 @@ nav.main-nav a:hover, nav.main-nav a.active{
   font-family: var(--font-display);
   font-size: 1.5rem;
   line-height: 2;
-  color: var(--gold-bright);
+  color: var(--white);
   margin:0;
 }
 .mission-box{
@@ -237,7 +229,7 @@ nav.main-nav a:hover, nav.main-nav a.active{
   margin: 0 auto;
   text-align:center;
   padding: 24px 28px;
-  border: 1px solid var(--gold);
+  border: 1px solid var(--cream);
   border-radius: var(--radius);
 }
 .mission-box .eyebrow{ margin-bottom: 0.5em; }
@@ -248,11 +240,11 @@ nav.main-nav a:hover, nav.main-nav a.active{
 }
 
 /* ===========================================================
-   Hero (still used on classes/contact/videos page headers)
+   Hero (classes / contact / videos page headers)
    =========================================================== */
 .hero{
   background: var(--maroon);
-  color: var(--ivory);
+  color: var(--cream);
   position: relative;
   overflow:hidden;
   padding: 88px 0 96px;
@@ -262,7 +254,7 @@ nav.main-nav a:hover, nav.main-nav a.active{
   position:absolute;
   right:-120px; top:-120px;
   width: 420px; height:420px;
-  border: 1px solid rgba(247,236,214,.35);
+  border: 1px solid rgba(245,239,224,.35);
   clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
   transform: rotate(12deg);
   opacity: .5;
@@ -276,7 +268,7 @@ nav.main-nav a:hover, nav.main-nav a.active{
   z-index:1;
 }
 .hero p.lede{
-  color: var(--sage);
+  color: var(--cream);
   font-size: 1.1rem;
   max-width: 46ch;
 }
@@ -287,23 +279,23 @@ nav.main-nav a:hover, nav.main-nav a.active{
 .credentials-list li{
   font-family: var(--font-mono);
   font-size: 0.85rem;
-  color: var(--gold-bright);
+  color: var(--white);
   padding-left: 1.4em;
   position:relative;
 }
 .credentials-list li::before{
   content:"—";
-  position:absolute; left:0; color: var(--gold);
+  position:absolute; left:0; color: var(--cream);
 }
 .hero-portrait{
   aspect-ratio: 4/5;
-  background: var(--sage);
+  background: var(--cream);
   border-radius: var(--radius);
   display:flex; align-items:center; justify-content:center;
   color: var(--ink-soft);
   font-family: var(--font-mono);
   font-size: 0.8rem;
-  border: 1px solid rgba(247,236,214,.4);
+  border: 1px solid rgba(245,239,224,.4);
   object-fit: cover;
 }
 
@@ -325,23 +317,23 @@ nav.main-nav a:hover, nav.main-nav a.active{
   transition: transform .12s ease, background .15s ease, color .15s ease;
 }
 .btn-primary{
-  background: var(--gold);
-  color: var(--maroon-dark);
+  background: var(--cream);
+  color: var(--maroon);
 }
-.btn-primary:hover{ background: var(--gold-bright); transform: translateY(-1px); }
+.btn-primary:hover{ background: var(--white); transform: translateY(-1px); }
 .btn-outline{
   background: transparent;
-  border-color: var(--sage);
-  color: var(--ivory);
+  border-color: var(--tan);
+  color: var(--cream);
 }
-.btn-outline:hover{ border-color: var(--gold); color: var(--gold-bright); }
+.btn-outline:hover{ border-color: var(--cream); color: var(--white); }
 .btn-block{ width:100%; text-align:center; }
 
 /* ===========================================================
    Sections (generic)
    =========================================================== */
 section{ padding: 80px 0; }
-section.alt{ background: var(--sage); }
+section.alt{ background: var(--cream); }
 
 .section-head{
   max-width: 640px;
@@ -365,7 +357,7 @@ section.alt{ background: var(--sage); }
 }
 .class-card{
   background: var(--white);
-  border: 1px solid var(--sage);
+  border: 1px solid var(--tan);
   border-radius: var(--radius);
   padding: 28px 26px 26px;
   position:relative;
@@ -375,7 +367,7 @@ section.alt{ background: var(--sage); }
   content:"";
   position:absolute; top:14px; right:14px;
   width:18px; height:30px;
-  background-color: #FFFFFF;
+  background-color: var(--tan);
   -webkit-mask-image: url('ornament.png');
           mask-image: url('ornament.png');
   -webkit-mask-size: contain;
@@ -384,7 +376,6 @@ section.alt{ background: var(--sage); }
           mask-repeat: no-repeat;
   -webkit-mask-position: center;
           mask-position: center;
-  opacity: .55;
 }
 .class-tag{
   font-family: var(--font-mono);
@@ -392,7 +383,7 @@ section.alt{ background: var(--sage); }
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--maroon);
-  background: var(--sage);
+  background: var(--tan);
   padding: 4px 10px;
   border-radius: 999px;
   display:inline-block;
@@ -403,13 +394,13 @@ section.alt{ background: var(--sage); }
   font-family: var(--font-mono);
   font-size: 0.82rem;
   color: var(--ink-soft);
-  border-top: 1px solid var(--sage);
+  border-top: 1px solid var(--tan);
   margin-top: auto;
   padding-top: 14px;
   display:flex; flex-direction:column; gap:6px;
 }
 .class-meta .price{
-  color: var(--maroon-dark);
+  color: var(--maroon);
   font-weight:600;
   font-size: 0.95rem;
 }
@@ -431,7 +422,7 @@ section.alt{ background: var(--sage); }
 }
 .filter-chip.active, .filter-chip:hover{
   background: var(--maroon);
-  color: var(--ivory);
+  color: var(--cream);
 }
 
 /* ===========================================================
@@ -439,6 +430,7 @@ section.alt{ background: var(--sage); }
    =========================================================== */
 .contact-grid{
   display:grid; grid-template-columns: 1fr 1fr; gap: 56px;
+  align-items:start;
 }
 @media (max-width: 760px){ .contact-grid{ grid-template-columns:1fr; } }
 
@@ -466,7 +458,7 @@ form.contact-form{
   font-family: var(--font-body);
   font-size: 0.95rem;
   padding: 12px 14px;
-  border: 1px solid var(--sage);
+  border: 1px solid var(--tan);
   border-radius: var(--radius);
   background: var(--white);
   color: var(--ink);
@@ -474,7 +466,7 @@ form.contact-form{
 .field textarea{ resize: vertical; min-height: 120px; }
 
 .map-frame{
-  border: 1px solid var(--sage);
+  border: 1px solid var(--tan);
   border-radius: var(--radius);
   aspect-ratio: 4/3;
   overflow:hidden;
@@ -491,13 +483,13 @@ form.contact-form{
 }
 .video-card{
   background: var(--white);
-  border: 1px solid var(--sage);
+  border: 1px solid var(--tan);
   border-radius: var(--radius);
   overflow:hidden;
 }
 .video-frame{
   aspect-ratio: 16/9;
-  background: var(--maroon-dark);
+  background: var(--maroon);
   position:relative;
 }
 .video-frame iframe, .video-frame video{
@@ -510,15 +502,16 @@ form.contact-form{
    Footer
    =========================================================== */
 footer{
-  background: var(--maroon-dark);
-  color: var(--sage);
+  background: var(--maroon);
+  color: var(--tan);
   padding: 48px 0 28px;
   font-size: 0.9rem;
 }
 footer .container{
   display:flex; flex-wrap:wrap; justify-content:space-between; gap:24px;
 }
-footer a:hover{ color: var(--gold-bright); }
+footer .brand{ color: var(--cream); }
+footer a:hover{ color: var(--white); }
 .footer-bottom{
   border-top: 1px solid rgba(255,255,255,.08);
   margin-top: 28px; padding-top: 20px;
