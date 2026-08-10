@@ -100,7 +100,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .sandal-divider{
   display: inline-block;
   width: 200px; height: 50px;
-  background-color: var(--maroon);
+  background-color: var(--white);
   -webkit-mask-image: url('sandal.png');
           mask-image: url('sandal.png');
   -webkit-mask-size: contain;
@@ -111,15 +111,30 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
           mask-position: center;
 }
 
+/* Maroon-on-light variant of the divider — same size and spacing as
+   the filled maroon box, but transparent background with maroon line
+   and sandal, for use between two light (cream/white) sections. */
 .star-divider{
   display:flex; align-items:center; justify-content:center;
   gap: 14px;
-  margin: 3.2rem 0;
+  margin: 0;
+  background: var(--maroon);
+  padding: 24px 0;
 }
 .star-divider::before, .star-divider::after{
   content:"";
   height:3px; width: 3800px;
+  background: var(--white);
+}
+.star-divider--maroon{
+  background: var(--cream);
+}
+.star-divider--maroon::before,
+.star-divider--maroon::after{
   background: var(--maroon);
+}
+.star-divider--maroon .sandal-divider{
+  background-color: var(--maroon);
 }
 
 /* ===========================================================
@@ -190,7 +205,7 @@ nav.main-nav a:hover, nav.main-nav a.active{
    Verse / Mission section (home page hero)
    =========================================================== */
 .verse-section{
-  background: var(--maroon);
+  background: var(--cream);
   padding: 72px 0 56px;
 }
 .verse-grid{
@@ -202,8 +217,8 @@ nav.main-nav a:hover, nav.main-nav a.active{
 }
 .verse-en{
   text-align:left;
-  color: var(--cream);
-  font-size: 1.05rem;
+  color: var(--maroon);
+  font-size: 1.5rem;
   line-height:1.7;
   margin:0;
   font-style: italic;
@@ -213,7 +228,7 @@ nav.main-nav a:hover, nav.main-nav a.active{
   margin-top: 12px;
   font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: var(--tan);
+  color: var(--maroon);
 }
 .verse-ar{
   text-align:right;
@@ -221,15 +236,16 @@ nav.main-nav a:hover, nav.main-nav a.active{
   font-family: var(--font-display);
   font-size: 1.5rem;
   line-height: 2;
-  color: var(--white);
+  color: var(--maroon);
   margin:0;
 }
 .mission-box{
   max-width: 640px;
   margin: 0 auto;
   text-align:center;
+  font-style: italic;
   padding: 24px 28px;
-  border: 1px solid var(--cream);
+  border: 1px solid var(--maroon);
   border-radius: var(--radius);
 }
 .mission-box .eyebrow{ margin-bottom: 0.5em; }
@@ -517,4 +533,66 @@ footer a:hover{ color: var(--white); }
   margin-top: 28px; padding-top: 20px;
   font-size: 0.78rem; color: rgba(232,225,206,.6);
   text-align:center;
+}
+
+/* ===========================================================
+   About Me page additions
+   =========================================================== */
+
+/* Profile photo placeholder (light-section version of .hero-portrait) */
+.profile-photo{
+  aspect-ratio: 4/5;
+  background: var(--tan);
+  border: 1px solid var(--tan);
+  border-radius: var(--radius);
+  display:flex; align-items:center; justify-content:center;
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-align:center;
+  padding: 20px;
+}
+/* When used on an actual <img> (a real photo instead of the placeholder
+   text), drop the padding/centering and let the photo fill the frame. */
+img.profile-photo{
+  padding: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* Email line under the bio */
+.email-line{
+  display:flex; align-items:center; gap:8px;
+  margin-top: 1.4em;
+}
+.email-line a{
+  color: var(--maroon);
+  font-weight:600;
+}
+.email-line a:hover{ text-decoration: underline; }
+.icon-email{ color: var(--maroon); flex-shrink:0; }
+
+/* Qualifications list (light-section version of .credentials-list) */
+.qual-list{
+  list-style:none; padding:0; margin: 0;
+  display:flex; flex-direction:column; gap: 16px;
+  max-width: 720px;
+}
+.qual-list li{
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  padding-left: 1.4em;
+  position:relative;
+}
+.qual-list li::before{
+  content:"—";
+  position:absolute; left:0; color: var(--maroon);
+}
+.qual-list strong{
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight:600;
 }
