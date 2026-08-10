@@ -25,3 +25,21 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
+// 3D tilt effect for class cards
+var tiltCards = document.querySelectorAll('.class-card');
+tiltCards.forEach(function (card) {
+  card.addEventListener('mousemove', function (e) {
+    var rect = card.getBoundingClientRect();
+    var x = e.clientX - rect.left;
+    var y = e.clientY - rect.top;
+    var centerX = rect.width / 2;
+    var centerY = rect.height / 2;
+    var rotateX = (y - centerY) / 10;
+    var rotateY = (centerX - x) / 10;
+    card.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
+  });
+  card.addEventListener('mouseleave', function () {
+    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+  });
+});
