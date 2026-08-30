@@ -664,3 +664,11 @@ img.profile-photo{
   max-width: 800px;      /* bigger than a single column was — adjust to taste */
   margin-top: 40px;      /* breathing room from the photo/bio above */
 }
+
+/*logo-photo section for logo*/
+.logo-photo{
+  width: 8rem;
+  max-width: 800px;
+  display: block;
+  margin: 12px auto 0;
+}

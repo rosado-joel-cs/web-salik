@@ -34,8 +34,8 @@ document.addEventListener('DOMContentLoaded', function () {
       var y = e.clientY - rect.top;
       var centerX = rect.width / 2;
       var centerY = rect.height / 2;
-      var rotateX = (y - centerY) / 40;
-      var rotateY = (centerX - x) / 40;
+      var rotateX = (y - centerY) / 80;
+      var rotateY = (centerX - x) / 80;
       card.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
     });
     card.addEventListener('mouseleave', function () {
