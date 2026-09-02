@@ -6,17 +6,17 @@
    rather than a generic dark-mode default.
    =========================================================== */
 :root{
-  --bg:          #0A0E1A;   /* base night-navy */
-  --bg-soft:     #0E1424;   /* slightly lifted band, for alt sections */
-  --surface:     #141C33;   /* cards */
-  --surface-line:rgba(244,238,223,0.08);
-  --line:        rgba(244,238,223,0.14);
-  --gold:        #D3A15C;   /* lantern gold — the one accent */
-  --gold-bright: #F2C883;
-  --gold-dim:    rgba(211,161,92,0.35);
-  --gold-wash:   rgba(211,161,92,0.10);
-  --cream:       #F4EEDF;   /* primary text on dark */
-  --slate:       #929AB2;   /* secondary text */
+  --bg:          #16110D;   /* deep espresso brown */
+  --bg-soft:     #1E1611;   /* slightly lifted dark walnut */
+  --surface:     #2A1F17;   /* rich mocha for cards */
+  --surface-line:rgba(248,243,230,0.06); 
+  --line:        rgba(248,243,230,0.12);
+  --gold:        #E5B25D;   /* warm antique gold accent */
+  --gold-bright: #F8D07C;
+  --gold-dim:    rgba(229,178,93,0.35);
+  --gold-wash:   rgba(229,178,93,0.10);
+  --cream:       #F8F3E6;   /* warm parchment white for primary text */
+  --slate:       #A69B8F;   /* taupe/brownish-grey for secondary text */
 
   --font-display: 'Amiri', serif;
   --font-body:    'Manrope', sans-serif;
@@ -99,13 +99,13 @@ section[id]{ scroll-margin-top: calc(var(--header-h) + 18px); }
 .site-header{
   position: fixed; top:0; left:0; right:0; z-index: 200;
   height: var(--header-h);
-  background: rgba(10,14,26,0.7);
+  background: rgba(22,17,13,0.7);
   backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--line);
   transition: background .3s ease, box-shadow .3s ease;
 }
 .site-header.is-scrolled{
-  background: rgba(10,14,26,0.94);
+  background: rgba(22,17,13,0.94);
   box-shadow: 0 14px 34px rgba(0,0,0,0.35);
 }
 .site-header .container{
@@ -141,13 +141,21 @@ nav.main-nav a:hover::after, nav.main-nav a.active::after{ transform: scaleX(1);
 }
 
 @media (max-width: 860px){
-  .nav-toggle{ display:block; }
+  .nav-toggle{ display:block; z-index: 210; } /* keep toggle button clickable above the menu overlay */
   nav.main-nav{
-    position: fixed; inset: var(--header-h) 0 0 0;
-    background: var(--bg);
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    right: 0;
+    height: 100vh;
+    padding-top: var(--header-h);
+    background: rgba(22, 17, 13, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     display:flex; align-items:center; justify-content:center;
     opacity:0; visibility:hidden; transform: translateY(-8px);
     transition: opacity .3s ease, transform .3s ease, visibility .3s;
+    z-index: 205;
   }
   nav.main-nav.open{ opacity:1; visibility:visible; transform:none; }
   nav.main-nav ul{ flex-direction:column; align-items:center; gap:34px; }
